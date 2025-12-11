@@ -1,0 +1,7 @@
+{
+  "name": "elahorrador",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
