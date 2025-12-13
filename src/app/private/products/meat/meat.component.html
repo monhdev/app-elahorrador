@@ -1,0 +1,13 @@
+<ion-card>
+    <ion-card-header>
+      <ion-card-title>Añade tus productos</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <app-meat-in (onSubmit)="submitMeat($event)" [meat]="Meat" (onEdit)="submitEditMeat($event)"></app-meat-in>
+  </ion-card>
+
+  <ion-card>
+    <app-meat-view></app-meat-view>
+  </ion-card>

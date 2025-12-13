@@ -1,0 +1,74 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Elije una sección</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!--aqui se ponen las direcciones-->
+    <button (click)="selectedComponent='component1'">Inicio</button>
+    <br><br>
+    <button (click)="selectedComponent='component2'">Aceite</button>
+    <br><br>
+    <button (click)="selectedComponent='component3'">Carne</button>
+    <br><br>
+
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title><h1><strong>El Ahorrador</strong></h1></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+  <!--añadir aquí el componente
+  @switch (selectedComponent || 'component1') {
+    @case ('component1') {
+      <app-home></app-home>
+    }
+    @case ('component2') {
+      <app-oil></app-oil>
+    }
+    @default {
+      <p>default</p>
+    }
+  }
+
+
+    @if (selectedComponent === '')
+  {
+    <app-main></app-main>
+  }
+
+  -->
+  <p>componente seleccionado: {{selectedComponent}}</p>
+
+
+  @if (selectedComponent === 'component1' ||selectedComponent === '') {
+    <app-main></app-main>
+  }
+  @if (selectedComponent === 'component2') {
+    <app-oil></app-oil>
+  }
+
+  @if (selectedComponent === 'component3') {
+    <app-meat></app-meat>
+  }
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+</div>
+

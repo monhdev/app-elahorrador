@@ -1,0 +1,13 @@
+<ion-card>
+  <h1>Productos:</h1>
+
+  <ul>
+    @for (meat of meatsList$ | async; track $index) {
+      <li>{{ meat.name }} -<strong> {{ meat.description}}</strong> - {{meat.price}} € -precio litro: {{meat.units}} €
+        <br>
+        <span (click)="editMeat(meat)"><ion-button fill="outline" size="small">Edit</ion-button></span>
+        <span (click)="deleteMeat(meat)"><ion-button size="small">Delete</ion-button></span>
+      </li>
+    }
+  </ul>
+</ion-card>
