@@ -1,17 +1,29 @@
-<ion-menu contentId="main-content">
+<ion-menu contentId="main-content" >
   <ion-header>
     <ion-toolbar>
       <ion-title>Elije una sección</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-    <!--aqui se ponen las direcciones-->
-    <button (click)="selectedComponent='component1'">Inicio</button>
+  <ion-content class="ion-padding" >
+    <!--aqui se ponen las direcciones   fill="clear" -->
+    <ion-menu-toggle><!--esto hace que el menu se cirre-->
+      <button  (click)="selectedComponent='component1'">Inicio
+        <img src="assets/icon/Home.ico">
+      </button>
+    </ion-menu-toggle>
     <br><br>
-    <button (click)="selectedComponent='component2'">Aceite</button>
-    <br><br>
-    <button (click)="selectedComponent='component3'">Carne</button>
-    <br><br>
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component2'">Aceite
+        <img src="assets/icon/aceite.ico">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component3'">Carne
+        <img src="assets/icon/carne.ico">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
 
   </ion-content>
 </ion-menu>
@@ -21,54 +33,29 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title><h1><strong>El Ahorrador</strong></h1></ion-title>
+      <ion-title><h1>
+        <img src="assets/icon/favicon.png" width="25px">
+        <strong> El Ahorrador </strong>
+        <img src="assets/icon/favicon.png" width="25px">
+      </h1>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
 
-  <!--añadir aquí el componente
-  @switch (selectedComponent || 'component1') {
-    @case ('component1') {
-      <app-home></app-home>
+
+    @if (selectedComponent === 'component1' ||selectedComponent === '') {
+      <app-main></app-main>
     }
-    @case ('component2') {
+    @if (selectedComponent === 'component2') {
       <app-oil></app-oil>
     }
-    @default {
-      <p>default</p>
+
+    @if (selectedComponent === 'component3') {
+      <app-meat></app-meat>
     }
-  }
 
-
-    @if (selectedComponent === '')
-  {
-    <app-main></app-main>
-  }
-
-  -->
-  <p>componente seleccionado: {{selectedComponent}}</p>
-
-
-  @if (selectedComponent === 'component1' ||selectedComponent === '') {
-    <app-main></app-main>
-  }
-  @if (selectedComponent === 'component2') {
-    <app-oil></app-oil>
-  }
-
-  @if (selectedComponent === 'component3') {
-    <app-meat></app-meat>
-  }
-
-
-
-
-
-
-
-
-</ion-content>
-
+  </ion-content>
 
 </div>
 

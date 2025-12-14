@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IMeat } from '../../../models/interfaces';
-import { MeatService } from '../../../services/meat.service';
+import { IMeat } from '../../../../models/interfaces';
+import { MeatService } from '../../../../services/meat.service';
 import { IonItem, IonButton, IonInput } from "@ionic/angular/standalone";
 
 @Component({

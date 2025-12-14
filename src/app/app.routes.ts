@@ -18,11 +18,11 @@ export const routes: Routes = [
 
   {path: 'main', loadComponent: () => import('./private/main/main.component').then((m) => m.MainComponent)},
 
-  {path: 'meat', loadComponent: () => import('./private/products/meat/meat.component').then((m) => m.MeatComponent)},
+  {path: 'meat', loadComponent: () => import('./private/products/carne/meat/meat.component').then((m) => m.MeatComponent)},
 
-  {path: 'meat-view', loadComponent: () => import('./private/products/meat-view/meat-view.component').then((m) => m.MeatViewComponent)},
+  {path: 'meat-view', loadComponent: () => import('./private/products/carne/meat-view/meat-view.component').then((m) => m.MeatViewComponent)},
 
-  {path: 'meat-in', loadComponent: () => import('./private/products/meat-in/meat-in.component').then((m) => m.MeatInComponent)}
+  {path: 'meat-in', loadComponent: () => import('./private/products/carne/meat-in/meat-in.component').then((m) => m.MeatInComponent)}
 
 
 
