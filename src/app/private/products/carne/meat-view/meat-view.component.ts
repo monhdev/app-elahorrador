@@ -4,13 +4,13 @@ import { MeatService } from 'src/app/services/meat.service';
 import { Router } from '@angular/router';
 import { IMeat } from 'src/app/models/interfaces';
 import { Observable } from 'rxjs';
-import { IonCard, IonButton } from "@ionic/angular/standalone";
+import { IonButton } from "@ionic/angular/standalone";
 import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-meat-view',
   templateUrl: './meat-view.component.html',
-  imports: [IonCard, IonButton, AsyncPipe ],
+  imports: [ IonButton, AsyncPipe ],
   styleUrls: ['./meat-view.component.scss'],
 })
 export class MeatViewComponent  implements OnInit {
@@ -32,7 +32,6 @@ export class MeatViewComponent  implements OnInit {
   }
 
   submitMeat(newMeat: IMeat): void {
-    console.log('New meat que rebem del component fill:', newMeat);
     this.meatsService.saveMeat(newMeat);
   }
 
@@ -45,7 +44,6 @@ export class MeatViewComponent  implements OnInit {
   }
 
   submitEditMeat(newMeat: IMeat): void {
-    console.log('New Meat al component Home:', newMeat);
     this.meatsService.updateMeat(newMeat);
   }
 }

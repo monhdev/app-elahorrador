@@ -1,0 +1,11 @@
+<h1>Comparador:</h1>
+
+<ul>
+  @for (oil of oilList$ | async; track $index) {
+    <li>{{ oil.name }} -<strong> {{ oil.description}}</strong> - {{oil.price}} € -precio litro: {{oil.units}} €
+      <br>
+      <span (click)="editOil(oil)"><ion-button fill="outline" size="small">Edit</ion-button></span>
+      <span (click)="deleteOil(oil)"><ion-button size="small">Delete</ion-button></span>
+    </li>
+  }
+</ul>

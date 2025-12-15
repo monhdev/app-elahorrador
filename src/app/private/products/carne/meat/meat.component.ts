@@ -1,14 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IonMenuButton,IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent, IonCardTitle, IonCardHeader, IonMenu, IonButtons } from '@ionic/angular/standalone';
+import { IonCard, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { IMeat } from 'src/app/models/interfaces';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { MeatService } from 'src/app/services/meat.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth';
 import { MeatInComponent } from "../meat-in/meat-in.component";
 import { MeatViewComponent } from '../meat-view/meat-view.component';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-meat',

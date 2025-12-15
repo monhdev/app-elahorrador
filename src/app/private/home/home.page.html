@@ -11,6 +11,7 @@
         <img src="assets/icon/Home.ico">
       </button>
     </ion-menu-toggle>
+
     <br><br>
     <ion-menu-toggle>
       <button (click)="selectedComponent='component2'">Aceite
@@ -18,12 +19,21 @@
       </button>
       <br><br>
     </ion-menu-toggle>
+
     <ion-menu-toggle>
       <button (click)="selectedComponent='component3'">Carne
         <img src="assets/icon/carne.ico">
       </button>
       <br><br>
     </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component4'">Bebidas
+        <img src="assets/icon/Drinks.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
 
   </ion-content>
 </ion-menu>
@@ -53,6 +63,10 @@
 
     @if (selectedComponent === 'component3') {
       <app-meat></app-meat>
+    }
+
+    @if (selectedComponent === 'component4') {
+      <app-drink></app-drink>
     }
 
   </ion-content>

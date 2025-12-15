@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IMeat } from '../../../../models/interfaces';
 import { MeatService } from '../../../../services/meat.service';
@@ -8,7 +8,7 @@ import { IonItem, IonButton, IonInput } from "@ionic/angular/standalone";
   selector: 'app-meat-in',
   templateUrl: './meat-in.component.html',
   styleUrls: ['./meat-in.component.scss'],
-    imports: [IonItem, IonInput, IonButton,ReactiveFormsModule],
+  imports: [IonItem, IonInput, IonButton, ReactiveFormsModule],
 
 })
 export class MeatInComponent {
@@ -60,7 +60,6 @@ export class MeatInComponent {
   submitMeat(): void {
     if (this.meatForm.valid) {
       const newMeat: IMeat = this.meatForm.value;
-      console.log('New Meat al component FormMeats abans d\'emetre:', newMeat);
       this.onSubmit.emit(newMeat);
       this.meatForm.reset();
     }

@@ -1,0 +1,20 @@
+<div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <img src="assets/icon/aceite.ico" width="40px">
+        Añade tus productos
+        <img src="assets/icon/botella_aceite.png" width="40px">
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <app-oil-in (onSubmit)="submitOil($event)" [oil]="Oil" (onEdit)="submitEditOil($event)"></app-oil-in>
+  </ion-card>
+
+  <ion-card>
+    <app-oil-view></app-oil-view>
+  </ion-card>
+</div>
+

@@ -12,3 +12,18 @@ export interface IMeat {
   price: number;
   units?: number;
 }
+export interface IDrink {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+export interface IOil {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+

@@ -1,0 +1,19 @@
+<div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <img src="assets/icon/Drinks.ico" width="40px">
+        Añade tus productos
+        <img src="assets/icon/refresco.ico" width="20px">
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <app-drink-in (onSubmit)="submitDrink($event)" [drink]="Drink" (onEdit)="submitEditDrink($event)"></app-drink-in>
+  </ion-card>
+
+  <ion-card>
+    <app-drink-view></app-drink-view>
+  </ion-card>
+</div>
