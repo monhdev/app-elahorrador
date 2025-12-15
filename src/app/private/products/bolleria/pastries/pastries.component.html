@@ -1,3 +1,9 @@
-<p>
-  pastries works!
-</p>
+<div class="search-container">
+  <input type="text" [formControl]="searchControl" placeholder="Buscar país..." class="search-input">
+  <ul class="search-list">
+    <li *ngFor="let item of filteredItems" class="search-item">
+      {{item}}
+    </li>
+  </ul>
+</div>
+
