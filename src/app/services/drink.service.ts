@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IDrink } from '../models/interfaces';
@@ -7,9 +7,7 @@ import { IDrink } from '../models/interfaces';
   providedIn: 'root',
 })
 export class DrinkService {
- firestore: Firestore = inject(Firestore);
-
-  constructor() { }
+  constructor(private firestore: Firestore) { }
 
   getDrink(): Observable<IDrink[]> {
     const drinkRef = collection(this.firestore, 'drinks');
@@ -35,7 +33,5 @@ export class DrinkService {
     const drinkDocRef = doc(this.firestore, `drinks/${drink.id}`);
     return updateDoc(drinkDocRef, { ...drink });
   }
-
-
 }
 
