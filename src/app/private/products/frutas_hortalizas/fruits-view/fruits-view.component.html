@@ -1,0 +1,17 @@
+<h1>Comparador:</h1>
+
+<ion-searchbar
+  placeholder="Buscar..."
+  (ionInput)="filterFruits($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
+
+<ul>
+  @for (fruits of filteredFruitsList$ | async; track $index) {
+    <li>{{ fruits.name }} -<strong> {{ fruits.description}}</strong> - {{fruits.price}} € -precio Kilo: {{fruits.units}} €
+      <br>
+      <span (click)="editFruits(fruits)"><ion-button fill="outline" size="small">Edit</ion-button></span>
+      <span (click)="deleteFruits(fruits)"><ion-button size="small">Delete</ion-button></span>
+    </li>
+  }
+</ul>

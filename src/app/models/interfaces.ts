@@ -26,7 +26,35 @@ export interface IOil {
   price: number;
   units?: number;
 }
-export interface Pastries {
+export interface IPastries {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+export interface IFruits {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+export interface IHygiene {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+export interface ICleaning {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
+export interface IMisc {
   id: string;
   name: string;
   description: string;

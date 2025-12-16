@@ -42,28 +42,28 @@
     </ion-menu-toggle>
 
     <ion-menu-toggle>
-      <button (click)="selectedComponent='component5'">Frutas y hortalizas
+      <button (click)="selectedComponent='component6'">Frutas y hortalizas
         <img src="assets/icon/frutas.ico" width="40px">
       </button>
       <br><br>
     </ion-menu-toggle>
 
     <ion-menu-toggle>
-      <button (click)="selectedComponent='component5'">Higiene
+      <button (click)="selectedComponent='component7'">Higiene
         <img src="assets/icon/jabon.ico" width="40px">
       </button>
       <br><br>
     </ion-menu-toggle>
 
     <ion-menu-toggle>
-      <button (click)="selectedComponent='component5'">Limpieza
+      <button (click)="selectedComponent='component8'">Limpieza
         <img src="assets/icon/limpieza.ico" width="40px">
       </button>
       <br><br>
     </ion-menu-toggle>
 
     <ion-menu-toggle>
-      <button (click)="selectedComponent='component5'">varios
+      <button (click)="selectedComponent='component9'">varios
         <img src="assets/icon/varios.ico" width="40px">
       </button>
       <br><br>
@@ -106,6 +106,22 @@
 
     @if (selectedComponent === 'component5') {
       <app-pastries></app-pastries>
+    }
+
+    @if (selectedComponent === 'component6') {
+      <app-fruits></app-fruits>
+    }
+
+    @if (selectedComponent === 'component7') {
+      <app-hygiene></app-hygiene>
+    }
+
+    @if (selectedComponent === 'component8') {
+      <app-cleaning></app-cleaning>
+    }
+
+    @if (selectedComponent === 'component9') {
+      <app-misc></app-misc>
     }
 
   </ion-content>

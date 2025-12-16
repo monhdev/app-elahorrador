@@ -1,0 +1,19 @@
+<div class="container">
+  <ion-card>
+    <ion-card-header style="background-color: rgb(244, 205, 146);">
+      <ion-card-title>
+        <img src="assets/icon/varios.ico" width="40px">
+        Añade tus productos
+        <img src="assets/icon/bamba.ico" width="40px">
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <app-misc-in (onSubmit)="submitMisc($event)" [misc]="Misc" (onEdit)="submitEditMisc($event)"></app-misc-in>
+  </ion-card>
+
+  <ion-card>
+    <app-misc-view (onEditMisc)="setMiscToEdit($event)"></app-misc-view>
+  </ion-card>
+</div>

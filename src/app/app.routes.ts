@@ -37,6 +37,30 @@ export const routes: Routes = [
 
   {path: 'pastries-in', loadComponent: () => import('./private/products/bolleria/pastries-in/pastries-in.component').then((m) => m.PastriesInComponent)},
 
+  {path: 'fruits', loadComponent: () => import('./private/products/frutas_hortalizas/fruits/fruits.component').then((m) => m.FruitsComponent)},
+
+  {path: 'fruits-view', loadComponent: () => import('./private/products/frutas_hortalizas/fruits-view/fruits-view.component').then((m) => m.FruitsViewComponent)},
+
+  {path: 'fruits-in', loadComponent: () => import('./private/products/frutas_hortalizas/fruits-in/fruits-in.component').then((m) => m.FruitsInComponent)},
+
+  {path: 'hygiene', loadComponent: () => import('./private/products/higiene/hygiene/hygiene.component').then((m) => m.HygieneComponent)},
+
+  {path: 'hygiene-view', loadComponent: () => import('./private/products/higiene/hygiene-view/hygiene-view.component').then((m) => m.HygieneViewComponent)},
+
+  {path: 'hygiene-in', loadComponent: () => import('./private/products/higiene/hygiene-in/hygiene-in.component').then((m) => m.HygieneInComponent)},
+
+  {path: 'cleaning', loadComponent: () => import('./private/products/limpieza/cleaning/cleaning.component').then((m) => m.CleaningComponent)},
+
+  {path: 'cleaning-view', loadComponent: () => import('./private/products/limpieza/cleaning-view/cleaning-view.component').then((m) => m.CleaningViewComponent)},
+
+  {path: 'cleaning-in', loadComponent: () => import('./private/products/limpieza/cleaning-in/cleaning-in.component').then((m) => m.CleaningInComponent)},
+
+  {path: 'misc', loadComponent: () => import('./private/products/varios/misc/misc.component').then((m) => m.MiscComponent)},
+
+  {path: 'misc-view', loadComponent: () => import('./private/products/varios/misc-view/misc-view.component').then((m) => m.MiscViewComponent)},
+
+  {path: 'misc-in', loadComponent: () => import('./private/products/varios/misc-in/misc-in.component').then((m) => m.MiscInComponent)},
+
 
 
 ];

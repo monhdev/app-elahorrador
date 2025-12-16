@@ -1,0 +1,17 @@
+<h1>Comparador:</h1>
+
+<ion-searchbar
+  placeholder="Buscar producto..."
+  (ionInput)="filterCleaning($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
+
+<ul>
+  @for (cleaning of filteredCleaningList$ | async; track $index) {
+    <li>{{ cleaning.name }} -<strong> {{ cleaning.description}}</strong> - {{cleaning.price}} € -precio litro: {{cleaning.units}} €
+      <br>
+      <span (click)="editCleaning(cleaning)"><ion-button fill="outline" size="small">Edit</ion-button></span>
+      <span (click)="deleteCleaning(cleaning)"><ion-button size="small">Delete</ion-button></span>
+    </li>
+  }
+</ul>

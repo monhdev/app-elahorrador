@@ -1,0 +1,17 @@
+<h1>Comparador:</h1>
+
+<ion-searchbar
+  placeholder="Buscar..."
+  (ionInput)="filterMisc($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
+
+<ul>
+  @for (misc of filteredMiscList$ | async; track $index) {
+    <li>{{ misc.name }} -<strong> {{ misc.description}}</strong> - {{misc.price}} € -precio litro/Ud: {{misc.units}} €
+      <br>
+      <span (click)="editMisc(misc)"><ion-button fill="outline" size="small">Edit</ion-button></span>
+      <span (click)="deleteMisc(misc)"><ion-button size="small">Delete</ion-button></span>
+    </li>
+  }
+</ul>

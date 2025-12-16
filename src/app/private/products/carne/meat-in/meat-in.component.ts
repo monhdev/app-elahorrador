@@ -40,8 +40,8 @@ export class MeatInComponent {
       id: new FormControl(''),
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       description: new FormControl('', Validators.required),
-      price: new FormControl(''),
-      units: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+      units: new FormControl(''),
     });
   }
 
