@@ -10,9 +10,6 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {path: 'products-in', loadComponent: () => import('./private/products-in/products-in.component').then((m) => m.ProductsInComponent)},
-
-  {path: 'products-view', loadComponent: () => import('./private/products-view/products-view.component').then((m) => m.ProductsViewComponent)},
 
   {path: 'main', loadComponent: () => import('./private/main/main.component').then((m) => m.MainComponent)},
 
@@ -33,6 +30,12 @@ export const routes: Routes = [
   {path: 'oil-view', loadComponent: () => import('./private/products/aceite/oil-view/oil-view.component').then((m) => m.OilViewComponent)},
 
   {path: 'oil-in', loadComponent: () => import('./private/products/aceite/oil-in/oil-in.component').then((m) => m.OilInComponent)},
+
+  {path: 'pastries', loadComponent: () => import('./private/products/bolleria/pastries/pastries.component').then((m) => m.PastriesComponent)},
+
+  {path: 'pastries-view', loadComponent: () => import('./private/products/bolleria/pastries-view/pastries-view.component').then((m) => m.PastriesViewComponent)},
+
+  {path: 'pastries-in', loadComponent: () => import('./private/products/bolleria/pastries-in/pastries-in.component').then((m) => m.PastriesInComponent)},
 
 
 

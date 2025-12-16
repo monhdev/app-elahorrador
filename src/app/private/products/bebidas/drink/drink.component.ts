@@ -1,14 +1,12 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { IonMenuButton, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent, IonCardTitle, IonCardHeader, IonMenu, IonButtons } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
+import { IonCard, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { IDrink } from 'src/app/models/interfaces';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DrinkService } from 'src/app/services/drink.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth';
 import { DrinkInComponent } from "../drink-in/drink-in.component";
 import { DrinkViewComponent } from '../drink-view/drink-view.component';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-drink',
@@ -18,26 +16,30 @@ import { AsyncPipe } from '@angular/common';
 })
 export class DrinkComponent implements OnInit {
 
-  authService: AuthService = inject(AuthService);
-  drinkService: DrinkService = inject(DrinkService);
-  router: Router = inject(Router);
+  drinkList$!: Observable<IDrink[]>;
+  Drink: IDrink | undefined;
 
-  title: string = 'Home';
-  drinkList$: Observable<IDrink[]>;
-Drink: IDrink|undefined;
-
-  constructor() {
-    this.drinkList$ = this.drinkService.getDrink();
-  }
+  constructor(
+    private authService: AuthService,
+    private drinkService: DrinkService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.drinkList$ = this.drinkService.getDrink();
   }
 
   submitDrink(newDrink: IDrink): void {
     this.drinkService.saveDrink(newDrink);
+    this.Drink = undefined; // Limpiar después de guardar
   }
 
   submitEditDrink(newDrink: IDrink): void {
     this.drinkService.updateDrink(newDrink);
+    this.Drink = undefined; // Limpiar después de editar
+  }
+
+  setDrinkToEdit(drink: IDrink): void {
+    this.Drink = drink; // Recibir el drink desde drink-view y pasarlo a drink-in
   }
 }

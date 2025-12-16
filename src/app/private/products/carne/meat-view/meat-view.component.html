@@ -1,12 +1,22 @@
 <h1>Comparador:</h1>
 
+<ion-searchbar
+  placeholder="Buscar carne..."
+  (ionInput)="filterMeat($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
+
 <ul>
-  @for (meat of meatsList$ | async; track $index) {
-    <li>{{ meat.name }} -<strong> {{ meat.description}}</strong> - {{meat.price}} € -precio Kg: {{meat.units}} €
+  @for (meat of filteredMeatList$ | async; track $index) {
+    <li>
+      {{ meat.name }} - <strong>{{ meat.description}}</strong> - {{meat.price}} € - precio Kg: {{meat.units}} €
       <br>
-      <span (click)="editMeat(meat)"><ion-button fill="outline" size="small">Edit</ion-button></span>
-      <span (click)="deleteMeat(meat)"><ion-button size="small">Delete</ion-button></span>
+      <span (click)="editMeat(meat)">
+        <ion-button fill="outline" size="small">Editar</ion-button>
+      </span>
+      <span (click)="deleteMeat(meat)">
+        <ion-button size="small">Borrar</ion-button>
+      </span>
     </li>
   }
 </ul>
-

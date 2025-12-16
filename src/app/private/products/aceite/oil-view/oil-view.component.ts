@@ -1,38 +1,48 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/auth';
 import { OilService } from 'src/app/services/oil.service';
 import { Router } from '@angular/router';
 import { IOil } from 'src/app/models/interfaces';
 import { Observable } from 'rxjs';
-import { IonButton } from "@ionic/angular/standalone";
+import { IonButton, IonSearchbar } from "@ionic/angular/standalone";
 import { AsyncPipe } from '@angular/common';
+import { map } from 'rxjs/operators';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-oil-view',
   templateUrl: './oil-view.component.html',
   styleUrls: ['./oil-view.component.scss'],
-  imports: [ IonButton, AsyncPipe ],
-
+  imports: [IonButton, IonSearchbar, AsyncPipe, FormsModule ]
 })
-export class OilViewComponent  implements OnInit {
-  authService: AuthService = inject(AuthService);
-  oilService: OilService = inject(OilService);
-  router: Router = inject(Router);
+export class OilViewComponent implements OnInit {
 
-  oilList$: Observable<IOil[]>;
+  @Output() onEditOil = new EventEmitter<IOil>(); // Nuevo output
 
-  oil: IOil | undefined;
+  oilList$!: Observable<IOil[]>;
+  filteredOilList$!: Observable<IOil[]>;
+  searchTerm: string = '';
+
+  constructor(
+    private authService: AuthService,
+    private oilService: OilService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.oilList$ = this.oilService.getOil();
+    this.filteredOilList$ = this.oilList$;
   }
 
-  constructor() {
-    this.oilList$ = this.oilService.getOil();
-  }
+  filterOil(event: any): void {
+    this.searchTerm = event.target.value.toLowerCase();
 
-  submitOil(newOil: IOil): void {
-    this.oilService.saveOil(newOil);
+    this.filteredOilList$ = this.oilList$.pipe(
+      map(oil => oil.filter(oil =>
+        oil.name.toLowerCase().includes(this.searchTerm) ||
+        oil.description.toLowerCase().includes(this.searchTerm)
+      ))
+    );
   }
 
   deleteOil(oil: IOil): void {
@@ -40,13 +50,6 @@ export class OilViewComponent  implements OnInit {
   }
 
   editOil(oil: IOil): void {
-    this.oil = oil;
-  }
-
-  submitEditOil(newOil: IOil): void {
-    this.oilService.updateOil(newOil);
+    this.onEditOil.emit(oil); // Emitir el oil al padre
   }
 }
-
-
-

@@ -16,29 +16,33 @@ import { MeatViewComponent } from '../meat-view/meat-view.component';
 })
 export class MeatComponent  implements OnInit {
 
-  authService: AuthService = inject(AuthService);
-  MeatService: MeatService = inject(MeatService);
-  router: Router = inject(Router);
-
-  title: string = 'Home';
-  MeatList$: Observable<IMeat[]>;
-
+  MeatList$!: Observable<IMeat[]>;
   Meat: IMeat | undefined;
+
+  constructor(
+    private authService: AuthService,
+    private MeatService: MeatService,
+    private router: Router
+  ) {  }
 
   ngOnInit() {
     this.MeatList$ = this.MeatService.getMeat();
   }
 
-  constructor() {
-    this.MeatList$ = this.MeatService.getMeat();
-  }
+
 
   submitMeat(newMeat: IMeat): void {
-    console.log('New Meat que rebem del component fill:', newMeat);
     this.MeatService.saveMeat(newMeat);
+    this.Meat = undefined;
+
   }
 
   submitEditMeat(newMeat: IMeat): void {
     this.MeatService.updateMeat(newMeat);
+    this.Meat = undefined;
+  }
+
+  setMeatToEdit(meat: IMeat): void {
+    this.Meat = meat;
   }
 }

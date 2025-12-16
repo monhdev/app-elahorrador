@@ -1,7 +1,13 @@
-<h1>Productos:</h1>
+<h1>Comparador:</h1>
+
+<ion-searchbar
+  placeholder="Buscar bebida..."
+  (ionInput)="filterDrink($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
 
 <ul>
-  @for (drink of drinkList$ | async; track $index) {
+  @for (drink of filteredDrinkList$ | async; track $index) {
     <li>{{ drink.name }} -<strong> {{ drink.description}}</strong> - {{drink.price}} € -precio litro: {{drink.units}} €
       <br>
       <span (click)="editDrink(drink)"><ion-button fill="outline" size="small">Edit</ion-button></span>

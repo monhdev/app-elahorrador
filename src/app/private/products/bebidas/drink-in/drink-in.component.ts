@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IDrink } from 'src/app/models/interfaces';
 import { DrinkService } from 'src/app/services/drink.service';
-import { IonItem, IonButton, IonInput, IonLabel } from "@ionic/angular/standalone";
+import { IonItem, IonButton, IonInput } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-drink-in',
@@ -39,8 +39,8 @@ export class DrinkInComponent {
         id: new FormControl(''),
         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
         description: new FormControl('', Validators.required),
-        price: new FormControl(''),
-        units: new FormControl('', Validators.required),
+        price: new FormControl('',Validators.required),
+        units: new FormControl('')
       });
     }
 

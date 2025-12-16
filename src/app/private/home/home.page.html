@@ -34,6 +34,41 @@
       <br><br>
     </ion-menu-toggle>
 
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component5'">Bolleria
+        <img src="assets/icon/croisan.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component5'">Frutas y hortalizas
+        <img src="assets/icon/frutas.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component5'">Higiene
+        <img src="assets/icon/jabon.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component5'">Limpieza
+        <img src="assets/icon/limpieza.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <button (click)="selectedComponent='component5'">varios
+        <img src="assets/icon/varios.ico" width="40px">
+      </button>
+      <br><br>
+    </ion-menu-toggle>
+
 
   </ion-content>
 </ion-menu>
@@ -67,6 +102,10 @@
 
     @if (selectedComponent === 'component4') {
       <app-drink></app-drink>
+    }
+
+    @if (selectedComponent === 'component5') {
+      <app-pastries></app-pastries>
     }
 
   </ion-content>

@@ -7,13 +7,14 @@ import { OilComponent } from "../products/aceite/oil/oil.component";
 import { MainComponent } from "../main/main.component";
 import { MeatComponent } from "../products/carne/meat/meat.component";
 import { DrinkComponent } from "../products/bebidas/drink/drink.component";
+import { PastriesComponent } from "../products/bolleria/pastries/pastries.component";
 
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ReactiveFormsModule, IonButtons, IonMenuButton, IonMenu, OilComponent, MainComponent, MeatComponent, IonMenuToggle, DrinkComponent],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ReactiveFormsModule, IonButtons, IonMenuButton, IonMenu, OilComponent, MainComponent, MeatComponent, IonMenuToggle, DrinkComponent, PastriesComponent],
 })
 export class HomePage {
   selectedComponent: string = '';

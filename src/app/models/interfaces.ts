@@ -26,4 +26,11 @@ export interface IOil {
   price: number;
   units?: number;
 }
+export interface Pastries {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  units?: number;
+}
 

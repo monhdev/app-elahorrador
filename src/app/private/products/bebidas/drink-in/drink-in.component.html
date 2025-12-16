@@ -15,18 +15,23 @@
     </ion-item>
     <br>
 
+    <div class="precio">
     <ion-item>
       <ion-input formControlName="price"
-      label="Precio" labelPlacement="floating" placeholder="Ejemplo: 1.99 (no pongas el signo de € ;D)"></ion-input>
+      label="Precio" labelPlacement="floating" placeholder="Ejemplo: 1.99"></ion-input>
+      <p style="padding-left: 10px; margin-top: 35px ;">€</p>
+
     </ion-item>
     <br>
 
     <ion-item>
       <ion-input formControlName="units"
-      label="Precio por unidad (Kg, L, Ud)" labelPlacement="floating" placeholder="Recuerda, solo números"></ion-input>
-
+      label="Precio/unidad (Kg, L, Ud)" labelPlacement="floating" placeholder="Ejemplo: 12.20"></ion-input>
+       <p style="padding-left: 10px; margin-top: 35px ;">€</p>
     </ion-item>
     <br>
+    </div>
+
     <ion-button size="small" type="button" (click)="submitDrink()">Añadir producto</ion-button>
 
     <ion-button size="small" type="button" (click)="submitEditDrink()">Editar producto</ion-button>

@@ -1,7 +1,13 @@
 <h1>Comparador:</h1>
 
+<ion-searchbar
+  placeholder="Buscar aceite..."
+  (ionInput)="filterOil($event)"
+  [(ngModel)]="searchTerm">
+</ion-searchbar>
+
 <ul>
-  @for (oil of oilList$ | async; track $index) {
+  @for (oil of filteredOilList$ | async; track $index) {
     <li>{{ oil.name }} -<strong> {{ oil.description}}</strong> - {{oil.price}} € -precio litro: {{oil.units}} €
       <br>
       <span (click)="editOil(oil)"><ion-button fill="outline" size="small">Edit</ion-button></span>

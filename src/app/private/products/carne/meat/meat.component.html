@@ -1,10 +1,10 @@
 <div class="container">
   <ion-card>
-    <ion-card-header>
+    <ion-card-header style="background-color: rgb(244, 205, 146);">
       <ion-card-title>
-        <img src="assets/icon/carne.ico" width="50px">
+        <img src="assets/icon/carne.ico" width="40px">
         Añade tus productos
-        <img src="assets/icon/filete.ico" width="50px">
+        <img src="assets/icon/filete.ico" width="40px">
       </ion-card-title>
     </ion-card-header>
   </ion-card>
@@ -14,6 +14,6 @@
   </ion-card>
 
   <ion-card>
-    <app-meat-view></app-meat-view>
+    <app-meat-view (onEditMeat)="setMeatToEdit($event)"></app-meat-view>
   </ion-card>
 </div>

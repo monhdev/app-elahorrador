@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IDrink } from '../models/interfaces';
@@ -7,16 +7,35 @@ import { IDrink } from '../models/interfaces';
   providedIn: 'root',
 })
 export class DrinkService {
-  constructor(private firestore: Firestore) { }
+  constructor(
+    private firestore: Firestore,
+    private ngZone: NgZone
+  ) { }
 
   getDrink(): Observable<IDrink[]> {
-    const drinkRef = collection(this.firestore, 'drinks');
-    return collectionData(drinkRef, { idField: 'id'}) as Observable<IDrink[]>;
+    return new Observable(observer => {
+      this.ngZone.run(() => {
+        const drinkRef = collection(this.firestore, 'drinks');
+        collectionData(drinkRef, { idField: 'id'}).subscribe({
+          next: (data) => observer.next(data as IDrink[]),
+          error: (err) => observer.error(err),
+          complete: () => observer.complete()
+        });
+      });
+    });
   }
 
   getDrinkById(id: string): Observable<IDrink> {
-    const drinkDocRef = doc(this.firestore, `drinks/${id}`);
-    return docData(drinkDocRef, { idField: 'id' }) as Observable<IDrink>;
+    return new Observable(observer => {
+      this.ngZone.run(() => {
+        const drinkDocRef = doc(this.firestore, `drinks/${id}`);
+        docData(drinkDocRef, { idField: 'id' }).subscribe({
+          next: (data) => observer.next(data as IDrink),
+          error: (err) => observer.error(err),
+          complete: () => observer.complete()
+        });
+      });
+    });
   }
 
   saveDrink(drink: IDrink) {
@@ -34,4 +53,3 @@ export class DrinkService {
     return updateDoc(drinkDocRef, { ...drink });
   }
 }
-

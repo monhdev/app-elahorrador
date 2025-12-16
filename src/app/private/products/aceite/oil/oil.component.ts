@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import {  IonCard, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
+import { IonCard, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { IOil } from 'src/app/models/interfaces';
 import { Observable } from 'rxjs';
 import { OilService } from 'src/app/services/oil.service';
@@ -13,33 +13,33 @@ import { OilViewComponent } from '../oil-view/oil-view.component';
   templateUrl: './oil.component.html',
   styleUrls: ['./oil.component.scss'],
   imports: [IonCard, IonCardHeader, IonCardTitle, OilInComponent, OilViewComponent],
-
 })
-export class OilComponent  implements OnInit {
+export class OilComponent implements OnInit {
 
-  authService: AuthService = inject(AuthService);
-    OilService: OilService = inject(OilService);
-    router: Router = inject(Router);
+  oilList$!: Observable<IOil[]>;
+  Oil: IOil | undefined;
 
-    title: string = 'Home';
-    OilList$: Observable<IOil[]>;
+  constructor(
+    private authService: AuthService,
+    private oilService: OilService,
+    private router: Router
+  ) { }
 
-    Oil: IOil | undefined;
-
-    ngOnInit() {
-      this.OilList$ = this.OilService.getOil();
-    }
-
-    constructor() {
-      this.OilList$ = this.OilService.getOil();
-    }
-
-    submitOil(newOil: IOil): void {
-      console.log('New Oil que rebem del component fill:', newOil);
-      this.OilService.saveOil(newOil);
-    }
-
-    submitEditOil(newOil: IOil): void {
-      this.OilService.updateOil(newOil);
-    }
+  ngOnInit() {
+    this.oilList$ = this.oilService.getOil();
   }
+
+  submitOil(newOil: IOil): void {
+    this.oilService.saveOil(newOil);
+    this.Oil = undefined; // Limpiar después de guardar
+  }
+
+  submitEditOil(newOil: IOil): void {
+    this.oilService.updateOil(newOil);
+    this.Oil = undefined; // Limpiar después de editar
+  }
+
+  setOilToEdit(oil: IOil): void {
+    this.Oil = oil; // Recibir el oil desde oil-view y pasarlo a oil-in
+  }
+}
