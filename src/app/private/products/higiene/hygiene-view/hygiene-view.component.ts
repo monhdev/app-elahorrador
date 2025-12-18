@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class HygieneViewComponent  implements OnInit {
 
-  @Output() onEditHygiene = new EventEmitter<IHygiene>(); // Nuevo output
+  @Output() onEditHygiene = new EventEmitter<IHygiene>();
 
   hygieneList$!: Observable<IHygiene[]>;
   filteredHygieneList$!: Observable<IHygiene[]>;
@@ -50,7 +50,7 @@ export class HygieneViewComponent  implements OnInit {
   }
 
   editHygiene(hygiene: IHygiene): void {
-    this.onEditHygiene.emit(hygiene); // Emitir el hygiene al padre
+    this.onEditHygiene.emit(hygiene);
   }
 }
 
